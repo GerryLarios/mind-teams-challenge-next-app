@@ -2,7 +2,12 @@ import Head from 'next/head';
 import type { AppProps } from 'next/app';
 import { CssBaseline } from '@mui/material';
 import ThemeProvider from '@/theme';
-import { AlertsProvider, AuthenticatedUserProvider, DashboardLayoutProvider } from '@/context';
+import {
+  AlertsProvider,
+  AuthenticatedUserProvider,
+  DashboardLayoutProvider,
+  PreviousPathProvider,
+} from '@/context';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -19,7 +24,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <AlertsProvider>
           <AuthenticatedUserProvider>
             <DashboardLayoutProvider>
-              <Component {...pageProps} />
+              <PreviousPathProvider>
+                <Component {...pageProps} />
+              </PreviousPathProvider>
             </DashboardLayoutProvider>
           </AuthenticatedUserProvider>
         </AlertsProvider>

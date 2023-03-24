@@ -3,9 +3,9 @@ import AccountTreeIcon from '@mui/icons-material/AccountTree';
 import BusinessIcon from '@mui/icons-material/Business';
 import CodeIcon from '@mui/icons-material/Code';
 import GroupIcon from '@mui/icons-material/Group';
-import { DashboardView } from '@/types';
 import Tooltip from '@/components/Tooltip';
 import NavigationMenuChild from './NavigationMenuChild';
+import { DashboardView } from '@/types';
 
 const configByView = {
   [DashboardView.USER_MANAGEMENT]: {

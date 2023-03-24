@@ -1,4 +1,4 @@
-import { CreateAccount, UpdateAccount } from '@/types';
+import { CreateAccount, UpdateAccount, UserInformationFormData } from '@/types';
 import { Config } from '@/utils';
 import {
   createDeleteProvider,
@@ -25,7 +25,7 @@ export function retrieveUser() {
   return createGetProvider(endpoint);
 }
 
-export function updateUsers(id: string, payload: UpdateAccount) {
+export function updateUsers(id: string, payload: UserInformationFormData) {
   return createPatchProvider(`${endpoint}/${id}`, payload);
 }
 

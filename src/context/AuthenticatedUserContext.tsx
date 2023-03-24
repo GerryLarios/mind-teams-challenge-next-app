@@ -1,9 +1,9 @@
 import React, { createContext } from 'react';
-import { AuthenticatedUser } from '@/types';
+import { UserResult } from '@/types';
 import useUser from '@/hooks/useUser';
 
 type AuthenticatedUserContextValue = {
-  user?: AuthenticatedUser;
+  user?: UserResult;
 };
 
 export const AuthenticatedUserContext = createContext<AuthenticatedUserContextValue>({

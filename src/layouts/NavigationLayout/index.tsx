@@ -19,8 +19,7 @@ const StyledProfileMenu = styled(ProfileMenu)({
 
 const Text = styled('h1')(({ theme }) => ({
   ...theme.typography.h2,
-  color: theme.palette.secondary[900],
-  marginLeft: 8,
+  color: theme.palette.primary[900],
 }));
 
 const Wrapper = styled('div')({

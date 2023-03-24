@@ -18,6 +18,12 @@ export enum DashboardView {
   USER_MANAGEMENT = 'USER_MANAGEMENT',
 }
 
+export enum ProfileView {
+  EDIT_PASSWORD = 'EDIT_PASSWORD',
+  EDIT_PROFILE = 'EDIT_PROFILE',
+  EDIT_USER = 'EDIT_USER',
+}
+
 export type UseProviderResult<TResult> = {
   called: boolean;
   loading: boolean;
@@ -39,6 +45,12 @@ export type AuthFormData = {
   password: string;
 };
 
+export type UserInformationFormData = {
+  email: string;
+  firstname: string;
+  lastname: string;
+};
+
 type Technology = {
   id: string;
   name: string;
@@ -53,7 +65,7 @@ type UserTechnologies = {
 export type ProfileResult = {
   id: string;
   resume: string | null;
-  lenguageLevel: LenguageLevel;
+  lenguageLevel: LenguageLevel | null;
   createdAt: string;
   updatedAt: string;
   technologies: UserTechnologies | null;

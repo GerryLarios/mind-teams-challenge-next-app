@@ -1,30 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { getAuthenticatedUser } from '@/providers';
-import { AuthenticatedUser } from '@/types';
+import { UserResult } from '@/types';
 import { getAuthToken } from '@/utils';
 import useProvider from './useProvider';
 
-export default function useUser(): AuthenticatedUser | undefined {
-  const [user, setUser] = useState<AuthenticatedUser>();
-
-  const [runGetAuthenticatedUser, result] = useProvider(getAuthenticatedUser, {
-    onComplete(data) {
-      setUser({
-        id: data.id,
-        email: data.email,
-        firstname: data.firstname,
-        lastname: data.lastname,
-        isAdmin: data.isAdmin,
-        isSuperAdmin: data.isSuperAdmin,
-      });
-    },
-  });
+export default function useUser(): UserResult | undefined {
+  const [runGetAuthenticatedUser, { called, data }] = useProvider(getAuthenticatedUser);
 
   useEffect(() => {
-    if (getAuthToken() && !result?.called) {
+    if (getAuthToken() && !called) {
       runGetAuthenticatedUser();
     }
-  }, [runGetAuthenticatedUser, result?.called]);
+  }, [runGetAuthenticatedUser, called]);
 
-  return user;
+  return data;
 }
