@@ -1,7 +1,9 @@
-import { useAuthenticatedUser } from '@/hooks';
+import { DashboardLayout } from '@/layouts';
 
-export default function User() {
-  const user = useAuthenticatedUser();
-
-  return <h1>{user?.email}</h1>;
+export default function Users() {
+  return (
+    <DashboardLayout title="Users">
+      <p>Users page</p>
+    </DashboardLayout>
+  );
 }

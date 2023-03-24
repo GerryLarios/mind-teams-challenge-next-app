@@ -4,3 +4,7 @@ export * from './passwordValidation';
 export * from './regex';
 export { default as Config } from './config';
 export { default as FriendlyError } from './FriendlyError';
+export { default as getAvatarName } from './getAvatarName';
+export { default as getUserDisplayName } from './getUserDisplayName';
+export { default as getUserFullName } from './getUserFullName';
+export { default as shouldDisplayUserEmail } from './shouldDisplayUserEmail';

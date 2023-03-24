@@ -2,13 +2,6 @@ import type { FriendlyError } from '@/utils';
 
 export type ValueOf<T> = T[keyof T];
 
-export type UseProviderResult<TResult> = {
-  called: boolean;
-  loading: boolean;
-  error?: Error | FriendlyError | unknown;
-  data?: TResult;
-};
-
 export enum LenguageLevel {
   C1 = 'C1',
   C2 = 'C2',
@@ -17,6 +10,20 @@ export enum LenguageLevel {
   A2 = 'A2',
   A1 = 'A1',
 }
+
+export enum DashboardView {
+  ACCOUNT_MANAGEMENT = 'TEAM_MANAGEMENT',
+  CLIENT_MANAGEMENT = 'CLIENT_MANAGEMENT',
+  TECHNOLOGY_MANAGEMENT = 'TECHNOLOGY_MANAGEMENT',
+  USER_MANAGEMENT = 'USER_MANAGEMENT',
+}
+
+export type UseProviderResult<TResult> = {
+  called: boolean;
+  loading: boolean;
+  error?: Error | FriendlyError | unknown;
+  data?: TResult;
+};
 
 export type CreateAccount = {
   name: string;
@@ -66,3 +73,5 @@ export type UserResult = {
 };
 
 export type AuthenticatedUser = Omit<UserResult, 'active' | 'createdAt' | 'updatedAt' | 'profile'>;
+export type UserAvatarInfo = { firstname?: string | null; lastname?: string | null };
+export type UserDisplay = Pick<UserResult, 'email' | 'firstname' | 'lastname'>;

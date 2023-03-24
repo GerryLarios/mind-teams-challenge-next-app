@@ -7,3 +7,7 @@ export function getAuthToken() {
 export function setAuthToken(token: string) {
   sessionStorage.setItem(key, token);
 }
+
+export function removeAuthToken() {
+  sessionStorage.removeItem(key);
+}
