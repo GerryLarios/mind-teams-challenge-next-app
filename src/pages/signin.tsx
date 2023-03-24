@@ -3,6 +3,7 @@ import MutedLayout from '@/layouts/MutedLayout';
 import { signin } from '@/providers';
 import { useRouter } from 'next/router';
 import SignInForm from '@/components/SignInManagement';
+import { setAuthToken } from '@/utils';
 
 export default function SignUp() {
   const router = useRouter();
@@ -10,7 +11,7 @@ export default function SignUp() {
 
   const [runSignIn, { loading }] = useProvider(signin, {
     onComplete(data) {
-      sessionStorage.setItem('Authorization', data);
+      setAuthToken(data);
       router.push('/admin/users');
     },
     onError() {

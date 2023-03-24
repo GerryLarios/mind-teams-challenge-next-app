@@ -1,8 +1,8 @@
-import type { AppProps } from 'next/app';
 import Head from 'next/head';
-import ThemeProvider from '@/theme';
-import { AlertsProvider } from '@/context';
+import type { AppProps } from 'next/app';
 import { CssBaseline } from '@mui/material';
+import ThemeProvider from '@/theme';
+import { AlertsProvider, AuthenticatedUserProvider } from '@/context';
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
@@ -17,7 +17,9 @@ export default function App({ Component, pageProps }: AppProps) {
       <ThemeProvider>
         <CssBaseline />
         <AlertsProvider>
-          <Component {...pageProps} />
+          <AuthenticatedUserProvider>
+            <Component {...pageProps} />
+          </AuthenticatedUserProvider>
         </AlertsProvider>
       </ThemeProvider>
     </>

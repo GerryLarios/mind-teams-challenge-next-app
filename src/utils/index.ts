@@ -1,3 +1,4 @@
+export * from './auth';
 export * from './errors';
 export * from './passwordValidation';
 export * from './regex';

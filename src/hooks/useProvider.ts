@@ -1,12 +1,5 @@
 import { useState, useCallback, useRef } from 'react';
-import { FriendlyError } from '@/utils';
-
-type UseProviderResult<TResult> = {
-  called: boolean;
-  loading: boolean;
-  error?: Error | FriendlyError | unknown;
-  data?: TResult;
-};
+import { UseProviderResult } from '@/types';
 
 type UseProviderOptions<TResult> = {
   onComplete?(data: TResult): void;

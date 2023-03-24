@@ -1,5 +1,6 @@
 import axios, { Method } from 'axios';
 import FriendlyError from '@/utils/FriendlyError';
+import { getAuthToken } from '@/utils';
 
 type Request<TBody, TQuery extends Record<string, string>> = {
   method: Method;
@@ -33,14 +34,15 @@ export default class RequestSender {
   }: Request<TBody, TQuery>) {
     const queryUrl = query ? new URLSearchParams(query).toString() : null;
     const queryStr = queryUrl ? `?${queryUrl}` : '';
+    const token = getAuthToken();
 
     try {
       return await axios.request({
         method,
         url: `${endpoint}${queryStr}`,
         headers: {
-          Authorization: `Bearer ${sessionStorage.getItem('Authorization') ?? ''}`,
           'Content-Type': 'application/json',
+          ...(token ? { Authorization: `Bearer ${token}` } : {}),
         },
         data: body,
       });
