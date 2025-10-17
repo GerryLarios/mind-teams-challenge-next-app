@@ -1,5 +1,3 @@
-import { Typography } from "@mui/material";
-
 export default function Index() {
-  return <Typography>Mind Teams Challenge</Typography>;
+  return <h1>Hello, world!</h1>;
 }
